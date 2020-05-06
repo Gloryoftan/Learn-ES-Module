@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        vendor: './src/js/vendor.js',
-        index: './src/js/index.js'
+        'vendor': './src/js/vendor.js',
+        'index': './src/js/index.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -22,14 +22,14 @@ module.exports = {
                 use: {
                     loader: "file-loader",
                     options: {
-                        name: "[name].[hash].[ext]",
+                        name: "[name]_[hash].[ext]",
                         outputPath: "imgs"
                     }
                 }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ["file-loader"],
+                use: ["file-loader"]
             },
         ],
     }

@@ -13,7 +13,7 @@ module.exports = merge(commonConfig, {
     mode: "production",
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].[contentHash].css"
+            filename: "css/[name]_[contentHash].css"
         }),
         new CleanWebpackPlugin(),
     ],
@@ -21,7 +21,7 @@ module.exports = merge(commonConfig, {
         minimizer: [new OptimizeCssAssetsWebpackPlugin(), new TerserPlugin()]
     },
     output: {
-        filename: '[name].[contentHash].js',
+        filename: '[name]_[contentHash].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -31,7 +31,7 @@ module.exports = merge(commonConfig, {
                 MiniCssExtractPlugin.loader,
                 "css-loader",
                 "sass-loader"
-            ]
+            ],
         }]
     }
 })
